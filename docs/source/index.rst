@@ -1,10 +1,6 @@
-.. Pandas XlsxWriter Charts documentation master file, created by
-   sphinx-quickstart on Fri Oct 18 21:12:53 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-Welcome to Pandas XlsxWriter Charts's documentation!
-====================================================
+Using Pandas and XlsxWriter to create Excel charts
+==================================================
 
 Contents:
 
@@ -12,11 +8,18 @@ Contents:
    :maxdepth: 2
 
 
+.. code-block:: python
 
-Indices and tables
-==================
+    # Create a Pandas Excel writer using XlsxWriter as the engine.
+    excel_file = 'grouped_column_farms.xlsx'
+    sheet_name = 'Sheet1'
+   
+    writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
+    df.to_excel(writer, sheet_name=sheet_name, index=True)
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+.. image:: _images/chart_grouped_column_farms.png
+   :scale: 75 %
+
+
 
