@@ -14,3 +14,6 @@ pdf:
 
 clean:
 	@make -C docs clean
+
+readthedocs:
+	curl -X POST http://readthedocs.org/build/pandas_xlsxwriter_charts
