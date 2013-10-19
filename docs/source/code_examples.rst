@@ -1,5 +1,5 @@
-Examples
-========
+Code Examples
+=============
 
 
 The following are some of the examples included in the
