@@ -5,8 +5,8 @@
 # Copyright 2013, John McNamara, jmcnamara@cpan.org
 #
 
-import pandas as pd
 import random
+import pandas as pd
 
 # Some sample data to plot.
 cat_2 = ['y' + str(x) for x in range(1, 9)]
@@ -25,7 +25,7 @@ excel_file = 'stacked_area1.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-df.to_excel(writer, sheet_name=sheet_name, index=True)
+df.to_excel(writer, sheet_name=sheet_name)
 
 # Access the XlsxWriter workbook and worksheet objects from the dataframe.
 workbook = writer.book
@@ -47,7 +47,6 @@ for i in range(4):
 # Configure the chart axes.
 chart.set_x_axis({'name': 'Index'})
 chart.set_y_axis({'name': 'Value', 'major_gridlines': {'visible': False}})
-
 
 # Insert the chart into the worksheet.
 worksheet.insert_chart('K2', chart)

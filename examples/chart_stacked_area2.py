@@ -26,7 +26,7 @@ excel_file = 'stacked_area2.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-df.to_excel(writer, sheet_name=sheet_name, index=True)
+df.to_excel(writer, sheet_name=sheet_name)
 
 # Access the XlsxWriter workbook and worksheet objects from the dataframe.
 workbook = writer.book
@@ -49,7 +49,6 @@ for i in range(len(cat_2)):
 # Configure the chart axes.
 chart.set_x_axis({'name': 'Index'})
 chart.set_y_axis({'name': 'Value', 'major_gridlines': {'visible': False}})
-
 
 # Insert the chart into the worksheet.
 worksheet.insert_chart('K2', chart)

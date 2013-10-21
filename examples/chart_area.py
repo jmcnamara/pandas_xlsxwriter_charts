@@ -18,7 +18,7 @@ excel_file = 'area.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-df.to_excel(writer, sheet_name=sheet_name, index=True)
+df.to_excel(writer, sheet_name=sheet_name)
 
 # Access the XlsxWriter workbook and worksheet objects from the dataframe.
 workbook = writer.book
@@ -28,7 +28,6 @@ worksheet = writer.sheets[sheet_name]
 chart = workbook.add_chart({'type': 'area'})
 
 # Configure the series of the chart from the dataframe data.
-
 chart.add_series({
     'categories': ['=Sheet1', 1, 0, 7, 0],
     'values':     ['=Sheet1', 1, 1, 7, 1],

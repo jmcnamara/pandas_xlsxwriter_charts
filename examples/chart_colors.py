@@ -26,7 +26,7 @@ excel_file = 'colors.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-df.to_excel(writer, sheet_name=sheet_name, index=True)
+df.to_excel(writer, sheet_name=sheet_name)
 
 # Access the XlsxWriter workbook and worksheet objects from the dataframe.
 workbook = writer.book
