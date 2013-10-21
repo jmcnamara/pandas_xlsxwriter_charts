@@ -6,22 +6,20 @@
 #
 
 import pandas as pd
+import pandas.io.data as web
 from vincent.colors import brews
 
 # Some sample data to plot.
-farm_1 = {'apples': 10, 'berries': 32, 'squash': 21, 'melons': 13, 'corn': 18}
-farm_2 = {'apples': 15, 'berries': 43, 'squash': 17, 'melons': 10, 'corn': 22}
-farm_3 = {'apples': 6, 'berries': 24, 'squash': 22, 'melons': 16, 'corn': 30}
-farm_4 = {'apples': 12, 'berries': 30, 'squash': 15, 'melons': 9, 'corn': 15}
-
-data = [farm_1, farm_2, farm_3, farm_4]
-index = ['Farm 1', 'Farm 2', 'Farm 3', 'Farm 4']
+all_data = {}
+for ticker in ['AAPL', 'GOOG', 'IBM', 'YHOO', 'MSFT']:
+    all_data[ticker] = web.get_data_yahoo(ticker, '1/1/2010', '1/1/2013')
 
 # Create a Pandas dataframe from the data.
-df = pd.DataFrame(data, index=index)
+df = pd.DataFrame({tic: data['Adj Close']
+                   for tic, data in all_data.iteritems()})
 
 # Create a Pandas Excel writer using XlsxWriter as the engine.
-excel_file = 'grouped_column_farms.xlsx'
+excel_file = 'stacked_area3.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
@@ -31,22 +29,26 @@ df.to_excel(writer, sheet_name=sheet_name, index=True)
 workbook = writer.book
 worksheet = writer.sheets[sheet_name]
 
+# Adjust the width of the first column to make the date values clearer.
+worksheet.set_column('A:A', 20)
+
 # Create a chart object.
-chart = workbook.add_chart({'type': 'column'})
+chart = workbook.add_chart({'type': 'area', 'subtype': 'stacked'})
 
 # Configure the series of the chart from the dataframe data.
-for col_num in range(1, len(farm_1) + 1):
+max_row = len(df)
+for i in range(len(ticker) + 1):
+    col = i + 1
     chart.add_series({
-        'name':       ['Sheet1!', 0, col_num],
-        'categories': ['Sheet1', 1, 0, 4, 0],
-        'values':     ['Sheet1', 1, col_num, 4, col_num],
-        'fill':       {'color': brews['Set1'][col_num - 1]},
-        'overlap':-10,
+        'name':       ['Sheet1', 0, col],
+        'categories': ['Sheet1', 1, 0, max_row, 0],
+        'values':     ['Sheet1', 1, col, max_row, col],
+        'fill':       {'color': brews['Accent'][i]},
     })
 
 # Configure the chart axes.
-chart.set_x_axis({'name': 'Total Produce'})
-chart.set_y_axis({'name': 'Farms', 'major_gridlines': {'visible': False}})
+chart.set_x_axis({'name': 'Date', 'num_font':  {'rotation':-80}})
+chart.set_y_axis({'name': 'Price', 'major_gridlines': {'visible': False}})
 
 # Insert the chart into the worksheet.
 worksheet.insert_chart('H2', chart)

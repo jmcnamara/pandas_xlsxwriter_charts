@@ -10,4 +10,16 @@ directory on GitHub.
 .. toctree::
    :maxdepth: 1
 
+   chart_column.rst
+   chart_axis_labels.rst
+   chart_axis_labels_rotated.rst
+   chart_legend.rst
+   chart_legend_stock.rst
+   chart_scatter.rst
+   chart_colors.rst
+   chart_area.rst
+   chart_stacked_area1.rst
+   chart_stacked_area2.rst
+   chart_stacked_area3.rst
    chart_grouped_columns_farms.rst
+   
