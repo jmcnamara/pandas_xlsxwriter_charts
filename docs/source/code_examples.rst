@@ -21,5 +21,8 @@ directory on GitHub.
    chart_stacked_area1.rst
    chart_stacked_area2.rst
    chart_stacked_area3.rst
-   chart_grouped_columns_farms.rst
+   chart_stacked_column.rst
+   chart_stacked_column_farms.rst
+   chart_grouped_column.rst
+   chart_grouped_column_farms.rst
    

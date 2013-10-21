@@ -5,52 +5,48 @@
 # Copyright 2013, John McNamara, jmcnamara@cpan.org
 #
 
+import random
 import pandas as pd
+from vincent.colors import brews
 
 # Some sample data to plot.
-list_data = [10, 20, 30, 20, 15, 30, 45]
+cat_4 = ['Metric_' + str(x) for x in range(1, 9)]
+index_4 = ['Data 1', 'Data 2', 'Data 3', 'Data 4']
+data_3 = {}
+for cat in cat_4:
+    data_3[cat] = [random.randint(10, 100) for x in index_4]
 
 # Create a Pandas dataframe from the data.
-df = pd.DataFrame(list_data)
+df = pd.DataFrame(data_3, index=index_4)
 
 # Create a Pandas Excel writer using XlsxWriter as the engine.
-excel_file = 'column.xlsx'
+excel_file = 'stacked_column.xlsx'
 sheet_name = 'Sheet1'
 
 writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
 df.to_excel(writer, sheet_name=sheet_name, index=True)
 
 # Access the XlsxWriter workbook and worksheet objects from the dataframe.
-# This is equivalent to the following using XlsxWriter on its own:
-#
-#    workbook = xlsxwriter.Workbook('filename.xlsx')
-#    worksheet = workbook.add_worksheet()
 workbook = writer.book
 worksheet = writer.sheets[sheet_name]
 
 # Create a chart object.
-chart = workbook.add_chart({'type': 'column'})
+chart = workbook.add_chart({'type': 'column', 'subtype': 'stacked'})
 
 # Configure the series of the chart from the dataframe data.
-chart.add_series({
-    'values':     '=Sheet1!$B$2:$B$8',
-    'gap':        2,
-})
-
-# You can also use array notation to define the chart values.
-#    chart.add_series({
-#        'values':     ['=Sheet1', 1, 1, 7, 1],
-#        'gap':        2,
-#    })
+for col_num in range(1, len(cat_4) + 1):
+    chart.add_series({
+        'name':       ['Sheet1', 0, col_num],
+        'categories': ['Sheet1', 1, 0, 4, 0],
+        'values':     ['Sheet1', 1, col_num, 4, col_num],
+        'gap':        2,
+    })
 
 # Configure the chart axes.
 chart.set_y_axis({'major_gridlines': {'visible': False}})
 
-# Turn off chart legend. It is on by default in Excel.
-chart.set_legend({'position': 'none'})
-
 # Insert the chart into the worksheet.
-worksheet.insert_chart('D2', chart)
+worksheet.insert_chart('K2', chart)
 
 # Close the Pandas Excel writer and output the Excel file.
 writer.save()

@@ -37,7 +37,7 @@ chart = workbook.add_chart({'type': 'column'})
 # Configure the series of the chart from the dataframe data.
 for col_num in range(1, len(farm_1) + 1):
     chart.add_series({
-        'name':       ['Sheet1!', 0, col_num],
+        'name':       ['Sheet1', 0, col_num],
         'categories': ['Sheet1', 1, 0, 4, 0],
         'values':     ['Sheet1', 1, col_num, 4, col_num],
         'fill':       {'color': brews['Set1'][col_num - 1]},

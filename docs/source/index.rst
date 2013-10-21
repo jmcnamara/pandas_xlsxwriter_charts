@@ -2,8 +2,8 @@
 Using Pandas and XlsxWriter to create Excel charts
 ==================================================
 
-This is an introduction on how to create Excel files with beautiful charts
-using `Pandas <http://pandas.pydata.org>`_ and
+An introduction to the creation of Excel files with beautiful charts using
+`Pandas <http://pandas.pydata.org>`_ and
 `XlsxWriter <http://xlsxwriter.readthedocs.org>`_.
 
 .. code-block:: python
@@ -38,6 +38,7 @@ Contents:
    :maxdepth: 2
 
    introduction.rst
+   pandas.rst
    chart_examples.rst
    code_examples.rst
    learn_more.rst

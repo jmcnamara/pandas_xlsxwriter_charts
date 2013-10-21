@@ -1,6 +1,10 @@
 Chart Examples
 ==============
 
+The chart example shown in this section are based on similar examples shown in
+the
+`Vincent Quickstart <https://vincent.readthedocs.org/en/latest/quickstart.html>`_
+
 Column Chart
 ------------
 
@@ -9,23 +13,26 @@ Create a simple column chart::
    ...
    # Create a chart object.
    chart = workbook.add_chart({'type': 'column'})
-   
+
    # Configure the series of the chart from the dataframe data.
    chart.add_series({
       'values':     '=Sheet1!$B$2:$B$8',
       'gap':        2,
    })
-     
+
    # Configure the chart axes.
    chart.set_y_axis({'major_gridlines': {'visible': False}})
-   
+
    # Turn off chart legend. It is on by default in Excel.
    chart.set_legend({'position': 'none'})
    ...
 
+:ref:`Full example code <chart_column>`.
+
+The output from this program exported from Excel as an image is:
+
 .. image:: _images/chart_column.png
 
-:ref:`Full example code <chart_column>`.
 
 Instead of the Excel style range notation, you can use the following array
 syntax which is easier to create programmatically::
@@ -90,8 +97,8 @@ Using stock data and positioning the legend at the top of the chart::
 Scatter Chart
 -------------
 
-Create a simple scatter chart. Rather than use Excel's default symbols for
-each data series we set each one to be a circle::
+Create a simple scatter chart. Rather than use Excel's default symbols for each
+data series we set each one to be a circle::
 
    chart.add_series({
      # ...
@@ -150,6 +157,63 @@ Or with stock data and the 'Accent' colorbrew scheme:
 
 :ref:`Full example code <chart_stacked_area3>`.
 
+
+Stacked Column Chart
+--------------------
+
+A Stacked Area chart is a subtype of an Column chart in Excel::
+
+   chart = workbook.add_chart({'type': 'column', 'subtype': 'stacked'})
+
+.. image:: _images/chart_stacked_column.png
+
+:ref:`Full example code <chart_stacked_column>`.
+
+Or with different data and a wider gap::
+
+   for col_num in range(1, len(farm_1) + 1):
+       chart.add_series({
+           'name':       ['Sheet1', 0, col_num],
+           'categories': ['Sheet1', 1, 0, 4, 0],
+           'values':     ['Sheet1', 1, col_num, 4, col_num],
+           'fill':       {'color': brews['Pastel1'][col_num - 1]},
+           'gap':        20,
+       })
+
+.. image:: _images/chart_stacked_column_farms.png
+
+:ref:`Full example code <chart_stacked_column_farms>`.
+
+
+Grouped Column Chart
+--------------------
+
+A Grouped Column chart is just an ordinary Column chart in Excel::
+
+   chart = workbook.add_chart({'type': 'column'})
+
+.. image:: _images/chart_grouped_column.png
+
+:ref:`Full example code <chart_grouped_column>`.
+
+Or with the farm data from above:
+
+.. image:: _images/chart_stacked_column_farms.png
+
+:ref:`Full example code <chart_grouped_column_farms>`.
+
+
+Chart Images
+------------
+
+The images shown above were all exported from Excel 2011 for Mac using files
+created with Pandas and XlsxWriter.
+
+The
+`example programs <https://github.com/jmcnamara/pandas_xlsxwriter_charts/tree/master/examples>`_
+and
+`output files <https://github.com/jmcnamara/pandas_xlsxwriter_charts/tree/master/examples/output_files>`_
+are on GitHub.
 
 
 
