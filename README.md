@@ -22,6 +22,6 @@ An introduction to the creation of Excel files with charts using [Pandas](<http:
 
 ![Chart image](https://raw.github.com/jmcnamara/pandas_xlsxwriter_charts/master/docs/source/_images/chart_grouped_column_farms.png)
 
-See the full document at [ReadTheDocs](http://pandas-xlsxwriter-charts.readthedocs.org).
+See the full document at [ReadTheDocs](http://pandas-xlsxwriter-charts.readthedocs.org/en/latest/).
 
 
