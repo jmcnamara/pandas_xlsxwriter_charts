@@ -11,14 +11,12 @@ writer engines to be added is
 XlsxWriter is a fully featured Excel writer that supports options such as
 autofilters, conditional formatting and charts.
 
-In the following sections we will look at some examples of converting Pandas
-data frames into Excel files with the addition of charts to plot the data.
 
 XlsxWriter
 ----------
 
 `XlsxWriter <https://xlsxwriter.readthedocs.org>`_  is a Python module for
-writing files in the Excel 2007+ XLSX file format::
+writing files in the Excel 2007+ XLSX file format, for example::
 
    import xlsxwriter
 
@@ -47,10 +45,12 @@ writing files in the Excel 2007+ XLSX file format::
 
    workbook.close()
 
+Creates a file like the following:
+
 .. image:: _images/demo.png
 
-It can be used to write text, numbers, formulas and hyperlinks to multiple
-worksheets and it supports features such as formatting and many more,
+XlsxWriter can be used to write text, numbers, formulas and hyperlinks to
+multiple worksheets and it supports features such as formatting and many more,
 including:
 
 * 100% compatible Excel XLSX files.
@@ -66,21 +66,11 @@ including:
 * Cell comments.
 * Memory optimisation mode for writing large files.
 
-It supports Python 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, Jython and PyPy and uses
-standard libraries only.
-
-XlsxWriter is intended to have a high degree of compatibility with files
-produced by Excel. In most cases the files produced are 100% equivalent to
-files produced by Excel and the test suite contains a large number of test
-cases that verify the output of XlsxWriter against actual files created in
-Excel.
-
 The `XlsxWriter <https://xlsxwriter.readthedocs.org>`_ documentation contains
-more detailed information on the APIs used in this document. In particular
-refer to the sections on the
+more detailed information on the APIs used in this document. In particular the
 `Chart Class <https://xlsxwriter.readthedocs.org/en/latest/chart.html>`_ and
-the section on
-`Working with Charts <https://xlsxwriter.readthedocs.org/en/latest/working_with_charts.html>`_.
+`Working with Charts <https://xlsxwriter.readthedocs.org/en/latest/working_with_charts.html>`_
+sections.
 
 
 Pandas

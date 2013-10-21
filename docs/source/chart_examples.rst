@@ -1,9 +1,6 @@
 Chart Examples
 ==============
 
-The chart example shown in this section are based on similar examples shown in
-the
-`Vincent Quickstart <https://vincent.readthedocs.org/en/latest/quickstart.html>`_
 
 Column Chart
 ------------
@@ -34,7 +31,7 @@ The output from this program exported from Excel as an image is:
 .. image:: _images/chart_column.png
 
 
-Instead of the Excel style range notation, you can use the following array
+Instead of the Excel style range notation, you can use the following list
 syntax which is easier to create programmatically::
 
    chart.add_series({
@@ -42,13 +39,13 @@ syntax which is easier to create programmatically::
        'gap':        2,
    })
 
-Excel refers to this type of histogram chart as "Column" charts. Vincent refers
-to them as "Bar" charts.
+Excel refers to this type of histogram chart as "Column" charts.
+
 
 Axis Labels
 -----------
 
-Adding labels to the chart axes::
+Adding labels to the chart axes is easy::
 
    chart.set_x_axis({'name': 'Index'})
    chart.set_y_axis({'name': 'Value', 'major_gridlines': {'visible': False}})
@@ -79,13 +76,17 @@ Create a simple Line chart::
 Legends
 -------
 
-By default Excel adds a legend to a chart.
+Excel adds a legend to a chart by default:
 
 .. image:: _images/chart_legend.png
 
 :ref:`Full example code <chart_legend>`.
 
-Using stock data and positioning the legend at the top of the chart::
+We can also turn the chart legend off, like the previous examples, or position
+the legend.
+
+The following is an example using stock data and positioning the
+legend at the top of the chart::
 
    chart.set_legend({'position': 'top'})
 
@@ -97,8 +98,10 @@ Using stock data and positioning the legend at the top of the chart::
 Scatter Chart
 -------------
 
-Create a simple scatter chart. Rather than use Excel's default symbols for each
-data series we set each one to be a circle::
+Create a simple scatter chart.
+
+Rather than use Excel's default symbols for each data series we set each one to
+be a circle::
 
    chart.add_series({
      # ...
@@ -115,7 +118,7 @@ Colours
 
 Colours are configurable for almost all aspects of XlsxWriter charts. In the
 following example we borrow the `Color Brewer <http://colorbrewer2.org/>`_
-colours from Vincent:
+colours from Vincent and apply them to a scatter chart:
 
 .. image:: _images/chart_colors.png
 
@@ -161,7 +164,7 @@ Or with stock data and the 'Accent' colorbrew scheme:
 Stacked Column Chart
 --------------------
 
-A Stacked Area chart is a subtype of an Column chart in Excel::
+A Stacked Column chart is a subtype of an Column chart in Excel::
 
    chart = workbook.add_chart({'type': 'column', 'subtype': 'stacked'})
 
@@ -169,16 +172,7 @@ A Stacked Area chart is a subtype of an Column chart in Excel::
 
 :ref:`Full example code <chart_stacked_column>`.
 
-Or with different data and a wider gap::
-
-   for col_num in range(1, len(farm_1) + 1):
-       chart.add_series({
-           'name':       ['Sheet1', 0, col_num],
-           'categories': ['Sheet1', 1, 0, 4, 0],
-           'values':     ['Sheet1', 1, col_num, 4, col_num],
-           'fill':       {'color': brews['Pastel1'][col_num - 1]},
-           'gap':        20,
-       })
+Or with different data and a wider gap:
 
 .. image:: _images/chart_stacked_column_farms.png
 
@@ -188,7 +182,7 @@ Or with different data and a wider gap::
 Grouped Column Chart
 --------------------
 
-A Grouped Column chart is just an ordinary Column chart in Excel::
+A Grouped Column chart is the default Column chart in Excel::
 
    chart = workbook.add_chart({'type': 'column'})
 
@@ -206,7 +200,7 @@ Or with the farm data from above:
 Chart Images
 ------------
 
-The images shown above were all exported from Excel 2011 for Mac using files
+The images shown above were all exported from Excel for Mac 2011 using files
 created with Pandas and XlsxWriter.
 
 The
