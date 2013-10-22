@@ -25,8 +25,8 @@ An introduction to the creation of Excel files with charts using
 .. image:: _images/chart_grouped_column_farms.png
 
 The charts in this document are heavily influenced by the output of
-`Vincent <http://vincent.readthedocs.org>`_ a data visualisation tool that
-is also integrated with Pandas.
+`Vincent <http://vincent.readthedocs.org>`_ a data visualisation tool that is
+also integrated with Pandas.
 
 
 Contents:

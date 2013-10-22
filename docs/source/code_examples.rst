@@ -13,6 +13,7 @@ directory on GitHub.
    chart_column.rst
    chart_axis_labels.rst
    chart_axis_labels_rotated.rst
+   chart_line.rst
    chart_legend.rst
    chart_legend_stock.rst
    chart_scatter.rst

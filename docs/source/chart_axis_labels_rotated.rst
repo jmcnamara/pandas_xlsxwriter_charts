@@ -1,7 +1,7 @@
 .. _chart_axis_labels_rotated:
 
-Example: Column charts with rotated numbers
-===========================================
+Example: Column Chart with rotated numbers
+==========================================
 
 This program is an example of creating a column chart with axis labels and
 rotated numbers:

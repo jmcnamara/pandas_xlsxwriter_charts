@@ -10,4 +10,4 @@ http://github.com/jmcnamara/XlsxWriter
 http://github.com/wrobstory/vincent
 
 **GitHub**: The source code for this document and the example programs used to
-create it: http://github.com/jmcnamara/pandas_xlsxwriter_charts
+create it http://github.com/jmcnamara/pandas_xlsxwriter_charts

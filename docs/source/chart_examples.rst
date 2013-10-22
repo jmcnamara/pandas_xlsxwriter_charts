@@ -72,6 +72,8 @@ Create a simple Line chart::
 
 .. image:: _images/chart_line.png
 
+:ref:`Full example code <chart_line>`.
+
 
 Legends
 -------
@@ -85,8 +87,8 @@ Excel adds a legend to a chart by default:
 We can also turn the chart legend off, like the previous examples, or position
 the legend.
 
-The following is an example using stock data and positioning the
-legend at the top of the chart::
+The following is an example using stock data and positioning the legend at the
+top of the chart::
 
    chart.set_legend({'position': 'top'})
 
