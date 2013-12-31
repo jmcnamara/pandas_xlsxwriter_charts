@@ -1,8 +1,8 @@
 Introduction
 ============
 
-Version 0.13 of `Pandas <http://pandas.pydata.org/>`_  will include support for
-new Excel writer engines in addition to the two engines supported in previous
+Version 0.13 of `Pandas <http://pandas.pydata.org/>`_  added support for new
+Excel writer engines in addition to the two engines supported in previous
 versions: `Xlwt <https://pypi.python.org/pypi/xlwt>`_ and
 `Openpyxl <https://pypi.python.org/pypi/openpyxl>`_. The first of the new
 writer engines to be added is
