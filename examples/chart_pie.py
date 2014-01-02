@@ -28,7 +28,9 @@ worksheet = writer.sheets[sheet_name]
 # Create a chart object.
 chart = workbook.add_chart({'type': 'pie'})
 
-# Configure the series of the chart from the dataframe data.
+# Configure the chart from the dataframe data. Configuring the segment
+# colours is optional. Without the 'points' option you will get Excel's
+# default colours.
 chart.add_series({
     'categories': '=Sheet1!B1:F1',
     'values':     '=Sheet1!B2:F2',
