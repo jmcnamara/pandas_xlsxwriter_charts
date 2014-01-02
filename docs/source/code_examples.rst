@@ -26,4 +26,4 @@ directory on GitHub.
    chart_stacked_column_farms.rst
    chart_grouped_column.rst
    chart_grouped_column_farms.rst
-   
+   chart_pie.rst

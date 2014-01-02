@@ -23,8 +23,7 @@ The output from this would look like the following:
 .. image:: _images/simple.png
 
 The option of adding an alternative writer ``engine`` is only available in
-version 0.13 of pandas (soon to be released) and on the Panda's
-`GitHub master branch <https://github.com/pydata/pandas>`_.
+Pandas version 0.13 and later.
 
 In order to add a chart to the worksheet we first need to get access to the
 underlying XlsxWriter

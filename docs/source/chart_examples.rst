@@ -199,6 +199,23 @@ Or with the farm data from above:
 :ref:`Full example code <chart_grouped_column_farms>`.
 
 
+
+Pie Chart
+---------
+
+Create a simple Pie chart with user defined colours::
+
+   chart = workbook.add_chart({'type': 'pie'})
+
+.. image:: _images/chart_pie.png
+
+:ref:`Full example code <chart_pie>`.
+
+
+
+
+
+
 Chart Images
 ------------
 
