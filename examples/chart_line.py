@@ -30,8 +30,8 @@ chart = workbook.add_chart({'type': 'line'})
 # Configure the series of the chart from the dataframe data.
 
 chart.add_series({
-    'categories': ['=Sheet1', 1, 0, 7, 0],
-    'values':     ['=Sheet1', 1, 1, 7, 1],
+    'categories': ['Sheet1', 1, 0, 7, 0],
+    'values':     ['Sheet1', 1, 1, 7, 1],
 })
 
 # Configure the chart axes.

@@ -35,7 +35,7 @@ Instead of the Excel style range notation, you can use the following list
 syntax which is easier to create programmatically::
 
    chart.add_series({
-       'values':     ['=Sheet1', 1, 1, 7, 1],
+       'values':     ['Sheet1', 1, 1, 7, 1],
        'gap':        2,
    })
 

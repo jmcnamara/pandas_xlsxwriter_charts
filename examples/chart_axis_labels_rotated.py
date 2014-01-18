@@ -36,8 +36,8 @@ chart = workbook.add_chart({'type': 'column'})
 
 # Configure the series of the chart from the dataframe data.
 chart.add_series({
-    'categories': ['=Sheet1', 1, 0, 21, 0],
-    'values':     ['=Sheet1', 1, 1, 21, 1],
+    'categories': ['Sheet1', 1, 0, 21, 0],
+    'values':     ['Sheet1', 1, 1, 21, 1],
     'gap':        10,
 })
 

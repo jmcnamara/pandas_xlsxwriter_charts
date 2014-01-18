@@ -39,7 +39,7 @@ chart.add_series({
 
 # You can also use array notation to define the chart values.
 #    chart.add_series({
-#        'values':     ['=Sheet1', 1, 1, 7, 1],
+#        'values':     ['Sheet1', 1, 1, 7, 1],
 #        'gap':        2,
 #    })
 
