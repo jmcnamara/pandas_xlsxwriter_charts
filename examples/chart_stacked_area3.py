@@ -16,7 +16,7 @@ for ticker in ['AAPL', 'GOOGL', 'IBM', 'YHOO', 'MSFT']:
 
 # Create a Pandas dataframe from the data.
 df = pd.DataFrame({tic: data['Adj Close']
-                   for tic, data in all_data.iteritems()})
+                   for tic, data in all_data.items()})
 
 # Create a Pandas Excel writer using XlsxWriter as the engine.
 excel_file = 'stacked_area3.xlsx'
