@@ -10,7 +10,7 @@ import pandas.io.data as web
 
 # Some sample data to plot.
 all_data = {}
-for ticker in ['AAPL', 'GOOG', 'IBM', 'YHOO', 'MSFT']:
+for ticker in ['AAPL', 'GOOGL', 'IBM', 'YHOO', 'MSFT']:
     all_data[ticker] = web.get_data_yahoo(ticker, '1/1/2012', '1/1/2013')
 
 # Create a Pandas dataframe from the data.
@@ -36,7 +36,7 @@ chart = workbook.add_chart({'type': 'line'})
 
 # Configure the series of the chart from the dataframe data.
 max_row = len(df) + 1
-for i in range(len(['AAPL', 'GOOG'])):
+for i in range(len(['AAPL', 'GOOGL'])):
     col = i + 1
     chart.add_series({
         'name':       ['Sheet1', 0, col],

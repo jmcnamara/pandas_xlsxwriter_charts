@@ -11,7 +11,7 @@ from vincent.colors import brews
 
 # Some sample data to plot.
 all_data = {}
-for ticker in ['AAPL', 'GOOG', 'IBM', 'YHOO', 'MSFT']:
+for ticker in ['AAPL', 'GOOGL', 'IBM', 'YHOO', 'MSFT']:
     all_data[ticker] = web.get_data_yahoo(ticker, '1/1/2012', '1/1/2013')
 
 # Create a Pandas dataframe from the data.
